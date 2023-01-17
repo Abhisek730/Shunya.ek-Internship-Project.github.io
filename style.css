@@ -1,0 +1,678 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("font/Inter-Regular.woff2") format("woff2"),
+    url("font/Inter-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #f9f9f9;
+  font-family: "Inter";
+  display: flex;
+}
+
+#sidebar {
+  background-color: rgb(32, 43, 70);
+  width: 265px;
+  box-sizing: border-box;
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+#sidebar header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  border-bottom: 1px dashed rgb(50, 60, 85);
+}
+
+#logo img {
+  height: 30px;
+}
+
+#toggle-nav {
+  background-color: rgb(50, 60, 85);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.menu {
+  margin: 8px 5px;
+  color: #8d98af;
+  font-size: 13px;
+  font-weight: 600;
+  height: 75%;
+  overflow-y: hidden;
+}
+
+.menu:hover {
+  overflow-y: scroll;
+}
+
+.menu-option span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.menu-option span:hover {
+  color: #fff;
+}
+.menu-content span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.menu-arrow img {
+  width: 13px;
+}
+
+.menu-title {
+  flex: 1;
+}
+
+.content {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(98, 106, 125);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(63, 63, 106);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
+
+#sideBarFooter {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sideBarFooter div {
+  text-align: center;
+  padding: 10px 15px;
+  background-color: rgb(43, 51, 75);
+  color: rgb(145, 148, 172);
+  font-weight: bolder;
+  width: 200px;
+  border-radius: 5px;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #fff;
+  color: #3f4157;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: lighter;
+  width: 180px;
+  position: absolute;
+  z-index: 1;
+  bottom: 10%;
+  left: 0%;
+  margin-left: 40px;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#dropDown {
+  list-style-position: inside;
+  margin-left: 40px;
+  color: #8d98af;
+}
+#dropDown li {
+  padding: 15px 10px;
+}
+#dropDown li:hover {
+  color: #fff;
+}
+
+#dropDown li a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+}
+main {
+  flex: 1;
+}
+#navbar {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  box-shadow: 5px 1px 15px #d4cdcd;
+  box-sizing: border-box;
+}
+
+.nav-icons,
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+  margin: 0px 1px;
+}
+section li {
+  list-style-type: none;
+  padding: 0px 20px;
+  font-size: 13px;
+  font-weight: bolder;
+  color: #7f8294;
+  cursor: pointer;
+}
+.nav-icons li img {
+  width: 20px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 25px;
+}
+
+.head div button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: fit-content;
+  margin: 10px 50px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #b5b5c3;
+}
+
+.card {
+  background-color: #fff;
+  /* width: 450px; */
+  flex-grow: 1;
+  padding: 15px;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.card-header p {
+  color: #b5b5c3;
+  font-size: 13px;
+}
+.card-row .number {
+  display: flex;
+}
+.card-body {
+  line-height: 50px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #3f4157;
+}
+.card-body .number {
+  display: flex;
+  align-items: center;
+}
+
+.card-row .text a {
+  text-decoration: none;
+  color: rgb(62, 151, 255);
+}
+
+.card-row .text a:hover {
+  color: #76bfff;
+}
+
+.brand-logos li div img {
+  width: 40px;
+}
+a {
+  text-decoration: none;
+}
+.brand-logos li div {
+  color: #736278;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.brand-logos {
+  display: flex;
+}
+.brand-logos li {
+  text-align: center;
+  width: 80px;
+  height: 85px;
+  margin: 0px 40px 5px 0px;
+  border: 1px dashed #c1c2c7;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+}
+.brand-logos li div p {
+  margin-top: -10px;
+}
+.tab-content table {
+  width: 100%;
+  font-size: 13px;
+  font-weight: bold;
+}
+td,
+th {
+  text-align: right;
+  padding: 0px;
+}
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+.status {
+  background-color: #e8fff3;
+  padding: 2px;
+}
+
+.sidebtn button {
+  color: rgb(179, 165, 183);
+  background: rgb(249, 249, 249);
+  border: none;
+  padding: 2px 10px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+canvas#myGraph {
+  width: 900px;
+  height: 400px;
+}
+
+.data-sets li {
+  list-style: none;
+}
+.data-sets li:before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: red; /* Change the color */
+  font-size: 25px;
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: 1em; /* Also needed for space (tweak if needed) */
+}
+.data-sets li:nth-child(1):before {
+  color: #3e97ff; /* Change the color */
+}
+.data-sets li:nth-child(2):before {
+  color: rgb(80, 205, 137); /* Change the color */
+}
+.data-sets li:nth-child(3):before {
+  color: rgb(114, 57, 234); /* Change the color */
+}
+.data-sets li:nth-child(4):before {
+  color: rgb(241, 65, 108); /* Change the color */
+}
+.data-sets li:nth-child(5):before {
+  color: rgb(255, 199, 0); /* Change the color */
+}
+.data-sets li:nth-child(6):before {
+  color: rgb(67, 206, 215); /* Change the color */
+}
+
+.data-sets {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  font-size: 15px;
+  padding: 3px;
+}
+
+.active {
+  margin-left: 5px;
+  padding: 5px;
+  background-color: #50cd89;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.active-btn {
+  background-color: rgb(57, 57, 65);
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.active-btn:hover {
+  background-color: #50cd89;
+}
+
+.text-cam {
+  border: 1px dashed rgb(67, 68, 75);
+  padding: 0px 20px;
+  border-radius: 10px;
+  height: 70px;
+}
+.text-cam h2 {
+  margin-bottom: -25px;
+}
+.text-cam p {
+  color: rgb(138, 138, 142);
+}
+
+.card-cam {
+  background-color: rgb(34, 35, 43);
+  color: rgb(252, 252, 253);
+  width: 450px;
+  border-radius: 10px;
+  padding: 30px 30px 0px 30px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bar-box {
+  height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+.bar-box div {
+  background-color: rgb(58, 133, 223);
+  width: 15px;
+  border-radius: 8px;
+}
+#a {
+  height: 30px;
+}
+#b {
+  height: 75px;
+}
+#c {
+  height: 55px;
+}
+#d {
+  height: 45px;
+}
+#e {
+  height: 30px;
+}
+#f {
+  height: 60px;
+}
+#g {
+  height: 75px;
+}
+#h {
+  height: 50px;
+}
+
+progress {
+  border: none;
+  background-color: #e8fff3;
+  color: rgb(80, 205, 137);
+  border-radius: 10px;
+}
+
+.brand-info div img {
+  width: 40px;
+}
+
+.brand-info {
+  display: flex;
+}
+
+.pro-bar {
+  display: flex;
+  align-items: center;
+}
+.channel-row {
+  align-items: center;
+}
+.channel-row div {
+  padding: 8px 5px;
+}
+
+/* For Chrome or Safari */
+progress::-webkit-progress-bar {
+  background-color: #e8fff3;
+  border-radius: 10px;
+  height: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: rgb(80, 205, 137) !important;
+  border-radius: 10px;
+  height: 5px;
+}
+
+/* For Firefox */
+progress {
+  background-color: #e8fff3;
+  height: 5px;
+}
+
+progress::-moz-progress-bar {
+  background-color: rgb(80, 205, 137) !important;
+  height: 5px;
+}
+
+/* For IE10 */
+progress {
+  background-color: #eee;
+  height: 5px;
+}
+
+progress {
+  background-color: #039603;
+  height: 5px;
+}
+
+.createCamp {
+  background-color: rgb(40, 132, 239);
+  border: none;
+  padding: 12px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.select-box {
+  padding: 10px 0px;
+}
+
+.selects {
+  display: flex;
+  column-gap: 20px;
+}
+
+.selects div label {
+  color: rgb(161, 165, 183);
+}
+
+.selects div select {
+  background: none;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+}
+.selects div select option {
+  border: none;
+  padding: 10px;
+}
+.select-box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #dcdcdc;
+}
+.camp-tab table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.camp-tab table tr td {
+  padding: 10px;
+}
+.camp-tab table tr td p {
+  color: rgb(161, 165, 183);
+}
+
+.camp-tab table tr,
+.camp-tab table tr td {
+  text-align: left;
+}
+
+.camp-tab table tr:nth-child(1) td:first-child {
+  border-left: 4px solid rgb(114, 57, 234);
+}
+.camp-tab table tr:nth-child(2) td:first-child {
+  border-left: 4px solid rgb(255, 199, 0);
+}
+.camp-tab table tr:nth-child(3) td:first-child {
+  border-left: 4px solid rgb(80, 205, 137);
+}
+.camp-tab table tr:nth-child(4) td:first-child {
+  border-left: 4px solid rgb(241, 65, 108);
+}
+.camp-tab table tr:nth-child(5) td:first-child {
+  border-left: 4px solid rgb(62, 151, 255);
+}
+.camp-tab table tr:nth-child(6) td:first-child {
+  border-left: 4px solid #50cd89;
+}
+
+.icons img {
+  width: 20px;
+}
+
+.gallery img {
+  width: 25px;
+  border-radius: 50px;
+  margin-left: -10px;
+}
+.tab-arrow {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 5px;
+}
+.tab-arrow img {
+  width: 15px;
+}
+.tab-arrow:hover {
+  background-color: rgb(40, 132, 239);
+}
+.camp-spans {
+  padding: 10px 5px;
+  margin: 5px 15px;
+  cursor: pointer;
+}
+#camp {
+  color: black;
+  border-bottom: 2px solid rgb(40, 132, 239);
+  cursor: pointer;
+}
+
+.last-row {
+  display: flex;
+  column-gap: 60px;
+}
+.percent {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+  background-color: rgb(238, 246, 255);
+  padding: 0px 20px 0px 0px;
+  border-radius: 50px;
+}
+.profile {
+  display: flex;
+  column-gap: 10px;
+  color: white;
+  background-color: #3e97ff;
+  border-radius: 50px;
+  width: 140px;
+  padding-left: 20px;
+}
+
+.card-body .last-row {
+  margin: 20px 0px;
+}
+
+#testing {
+  background-color: rgb(80, 205, 137);
+}
