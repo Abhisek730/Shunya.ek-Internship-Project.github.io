@@ -16,9 +16,15 @@
 body {
   background-color: #f9f9f9;
   font-family: "Inter";
+  max-width: 100vw;
+}
+.app {
   display: flex;
 }
-
+main {
+  background-color: rgb(249, 249, 249);
+  overflow: hidden;
+}
 #sidebar {
   background-color: rgb(32, 43, 70);
   width: 265px;
@@ -63,7 +69,9 @@ body {
 .menu:hover {
   overflow-y: scroll;
 }
-
+.menu-icon img {
+  width: 15px;
+}
 .menu-option span {
   display: flex;
   justify-content: space-between;
@@ -189,6 +197,8 @@ main {
   flex: 1;
 }
 #navbar {
+  position: sticky;
+  top: 0;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -250,6 +260,7 @@ section li {
   background-color: #fff;
   /* width: 450px; */
   flex-grow: 1;
+  margin: 10px;
   padding: 15px;
 }
 .card-header {
@@ -349,11 +360,6 @@ td:first-child {
   cursor: pointer;
 }
 
-canvas#myGraph {
-  width: 900px;
-  height: 400px;
-}
-
 .data-sets li {
   list-style: none;
 }
@@ -432,7 +438,7 @@ canvas#myGraph {
 .card-cam {
   background-color: rgb(34, 35, 43);
   color: rgb(252, 252, 253);
-  width: 450px;
+  /* width: 450px; */
   border-radius: 10px;
   padding: 30px 30px 0px 30px;
   margin: 10px;
@@ -621,6 +627,9 @@ progress {
   border-radius: 50px;
   margin-left: -10px;
 }
+.graph1 {
+  overflow-x: scroll;
+}
 .tab-arrow {
   border: none;
   background-color: #fff;
@@ -674,5 +683,62 @@ progress {
 }
 
 #testing {
+  width: 90px;
   background-color: rgb(80, 205, 137);
+}
+
+#design {
+  width: 200px;
+  background-color: rgb(241, 65, 108);
+}
+
+#development {
+  width: 280px;
+  background-color: rgb(114, 57, 234);
+}
+
+.card-body .last-row:nth-child(2) {
+  column-gap: 180px;
+}
+.card-body .last-row:nth-child(3) {
+  column-gap: 110px;
+}
+
+.card-body .last-row:nth-child(4) {
+  column-gap: 200px;
+}
+
+.ad {
+  text-align: center;
+}
+
+.adBtns button {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(62, 151, 255);
+  color: white;
+  font-weight: bold;
+  margin: 0px 5px;
+}
+
+button {
+  font-family: "Inter";
+  cursor: pointer;
+}
+
+#try:hover {
+  background-color: rgb(48, 137, 238);
+}
+
+.adimg {
+  margin: 25px 0px;
+}
+
+#mainFooter {
+  background-color: #fff;
+  display: flex;
+  margin-top: 20px;
+  padding: 0px 20px 20px 20px;
+  justify-content: space-between;
 }
