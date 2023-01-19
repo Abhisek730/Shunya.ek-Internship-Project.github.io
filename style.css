@@ -813,6 +813,40 @@ button {
   display: none;
 }
 
+/* navbar hover menu */
+
+.navdrop-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  top: 50px;
+  left: 10px;
+}
+
+.navdrop-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.navdrop-content a:hover {
+  background-color: #ddd;
+}
+
+.navdrop:hover .navdrop-content {
+  display: block;
+}
+
+.navdrop:hover {
+  color: #3e97ff;
+}
+
+/* Media Queries */
+
 @media screen and (min-width: 1101) {
   #sidebar {
     left: 0px;
