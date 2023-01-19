@@ -11,9 +11,22 @@ const pending = document.getElementById('pending')
 const completed = document.getElementById("completed");
 const allcompleted = document.getElementById("allcompleted")
 const allpending = document.getElementById("allpending");
-const allcampaigns = document.getElementById("allCampaigns")
-
-
+const allcampaigns = document.getElementById("allCampaigns");
+const extraDash = document.querySelector(".extraDash");
+let dash = false
+const morebtn = document.getElementById("more")
+const dashToggle = document.getElementById("dashToggle");
+const dropDown = document.getElementById("dropDown")
+let dropDownshow = false;
+let isSideBarOpen = true;
+const sidebar = document.getElementById("sidebar");
+const logo = document.getElementById("logo")
+const tooltip = document.querySelector(".tooltip");
+const mobFoot = document.querySelector(".mob-foot");
+const toggleNav = document.getElementById("toggle-nav")
+const sideMain = document.getElementById("side-main")
+const menu = document.querySelector(".menu")
+let mobsidebar = false
 
 function changeTab(button) {
     beats.style.border = "none";
@@ -58,14 +71,135 @@ function changeCampaign(info) {
         allcompleted.style.display = "table"
     }
 }
-// data 
 
-const date = new Date();
 
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
 
-// This arrangement can be altered based on how we want the date's format to appear.
-let currentDate = `${day}-${month}-${year}`;
-console.log(currentDate); // "17-6-2022"
+menu.addEventListener("mouseover", onhover)
+menu.addEventListener("mouseout", notHover)
+toggleNav.addEventListener('click', toggleClick)
+
+
+// onhover
+function onhover() {
+    console.log("over")
+    const shortSidebar = document.querySelector(".shortSidebar")
+    if (shortSidebar) {
+        if (!isSideBarOpen) {
+            toggleSideBar()
+        }
+    }
+}
+
+// onmouseout
+function notHover() {
+    const shortSidebar = document.querySelector(".shortSidebar")
+    if (shortSidebar) {
+        if (isSideBarOpen) {
+            toggleSideBar()
+
+        }
+    }
+
+}
+
+// toggle on click
+
+function toggleClick() {
+    menu.classList.toggle("shortSidebar");
+
+    toggleSideBar()
+}
+
+function toggleSideBar() {
+    if (isSideBarOpen) {
+        toggle("menu-title", "none")
+        toggle("menu-arrow", "none")
+        toggleVisibility("menu-content", "hidden")
+        isSideBarOpen = false
+        sidebar.style.width = "70px"
+        logo.style.display = "none"
+        tooltip.style.display = "none"
+        mobFoot.style.display = "block";
+        toggleNav.style.transform = 'rotate(180deg)'
+
+    } else if (!isSideBarOpen) {
+        toggle("menu-title", "flex")
+        toggle("menu-arrow", "flex")
+        toggleVisibility("menu-content", "visible")
+        isSideBarOpen = true
+        sidebar.style.width = "265px"
+        logo.style.display = "block"
+        tooltip.style.display = "block"
+        mobFoot.style.display = "none"
+        toggleNav.style.transform = 'rotate(0deg)';
+
+    }
+}
+
+function showExtraDash() {
+    if (dash == false) {
+        extraDash.style.display = "block";
+        dash = true
+        morebtn.innerText = "-"
+        dashToggle.innerText = "Show less"
+    } else {
+        extraDash.style.display = "none"
+        dash = false
+        morebtn.innerText = "+"
+        dashToggle.innerText = "Show more"
+    }
+}
+
+function showDropDown() {
+    if (dropDownshow == false) {
+        dropDown.style.display = 'block'
+        dropDownshow = true
+    } else {
+        dropDown.style.display = "none"
+        dropDownshow = false
+    }
+}
+
+
+// to hide and show sidebar elements
+function toggle(className, displayState) {
+    var elements = document.getElementsByClassName(className)
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = displayState;
+    }
+}
+
+function toggleVisibility(className, displayState) {
+    var elements = document.getElementsByClassName(className)
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.visibility = displayState;
+    }
+}
+
+
+// to show navbar with hamburger
+
+function showMobSidebar() {
+    sidebar.style.left = "0px";
+    mobsidebar = true
+}
+
+function hideMobSidebar(event) {
+
+    if (mobsidebar) {
+        var mouseClickWidth = event.clientX;
+        if (mouseClickWidth >= 265) {
+
+            sidebar.style.left = "-300px";
+        }
+
+    }
+
+}
+
+
+document.addEventListener("click", hideMobSidebar);
+
+
