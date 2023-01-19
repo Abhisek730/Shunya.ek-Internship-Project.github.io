@@ -414,8 +414,7 @@ td:first-child {
 
 .data-sets {
   display: grid;
-  grid-template-columns: auto auto auto;
-
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   font-size: 15px;
   padding: 3px;
 }
